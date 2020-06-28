@@ -32,3 +32,32 @@ Scanf.scanf "%d" (fun n ->
 )
 ```
 
+read input and pass it to a function
+```ocaml
+(*
+ * https://atcoder.jp/contests/abc170/tasks/abc170_a
+ * *)
+open Printf
+open Scanf
+
+let solve a b c d e = 15 - a - b - c - d - e
+
+let main =
+    scanf "%d %d %d %d %d" solve |> printf "%d\n"
+```
+
+init array, for, if
+```ocaml
+(*
+ * https://atcoder.jp/contests/abc170/tasks/abc170_a
+ * *)
+open Printf
+open Scanf
+
+let main =
+    let xs = Array.init 5 @@ fun _ -> scanf"%d " @@ fun x -> x in
+    for i = 0 to 4 do
+        if xs.(i) = 0 then
+            printf "%d\n" @@ i + 1
+    done
+```
