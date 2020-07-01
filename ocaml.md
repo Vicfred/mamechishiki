@@ -68,7 +68,7 @@ double for using Arrays and folds
  * https://atcoder.jp/contests/abc143/tasks/abc143_b
  * *)
 Scanf.scanf "%d\n" @@ fun n ->
-    let d = Array.init n @@ fun _ -> Scanf.scanf "%d " @@ fun d -yt> d in
+    let d = Array.init n @@ fun _ -> Scanf.scanf "%d " @@ fun d -> d in
     Printf.printf "%d\n" @@
     Array.fold_left (Array.fold_left ( + )) 0 @@
     Array.init n @@ fun i ->
