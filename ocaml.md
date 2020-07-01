@@ -9,7 +9,7 @@ let i = read_int()
 let _ = Printf.printf "%c\n" (s.[i-1])
 ```
 
-operator overloading
+operator overwriting
 ```ocaml
 (* 
  * https://atcoder.jp/contests/abc041/tasks/abc041_b
@@ -75,4 +75,19 @@ Scanf.scanf "%d\n" @@ fun n ->
         Array.init n @@ fun j ->
             if i <= j then 0
             else d.(i) * d.(j)
+```
+
+Sorting an array
+```ocaml
+(* https://atcoder.jp/contests/abc171/tasks/abc171_b *)
+
+Printf.printf "%d\n" @@
+Scanf.scanf "%d %d\n" @@ fun n k ->
+    let a = Array.init n @@ fun _ -> Scanf.scanf "%d " @@ fun i -> i in
+    Array.sort (-) a;
+    let ans = ref 0 in
+    for i = 0 to k-1 do
+        ans := !ans + a.(i)
+    done;
+    !ans;;
 ```
