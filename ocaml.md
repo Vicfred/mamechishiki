@@ -91,3 +91,66 @@ Scanf.scanf "%d %d\n" @@ fun n k ->
     done;
     !ans;;
 ```
+
+fold example
+```ocaml
+(* https://atcoder.jp/contests/abc139/tasks/abc139_a *)
+let () = Scanf.scanf "%s\n%s" @@ fun s t ->
+  Printf.printf "%d\n" @@
+  Array.fold_left ( + ) 0 @@
+  Array.init 3 @@ fun i -> if s.[i] = t.[i] then 1 else 0
+```
+
+
+fold over 2 arrays
+```ocaml
+    (* https://atcoder.jp/contests/abc139/tasks/abc139_a *)
+    open Batteries
+    let s = String.explode (read_line ())
+    let t = String.explode (read_line ())
+    let ans = List.fold_left2 (fun a b c -> if b = c then a + 1 else a) 0 s t
+    let () = print_int ans
+```
+
+String.iteri
+```ocaml
+    (* https://atcoder.jp/contests/abc139/tasks/abc139_a *)
+    let s = read_line ()
+    let t = read_line ()
+    let ans = ref 0
+    let _ = String.iteri (fun i c -> if c = t.[i] then incr ans) s; Printf.printf "%d\n" !ans
+```
+
+loop from recursion
+```ocaml
+    (* https://atcoder.jp/contests/abc139/tasks/abc139_a *)
+    let () =
+        let main () =
+            let s = read_line () in
+            let t = read_line () in
+            let rec loop i acc =
+                if i = 3 then acc else
+                    loop (i + 1) (acc + if s.[i] = t.[i] then 1 else 0)
+            in
+            let r = loop 0 0 in
+            Printf.printf "%d\n" r
+        in
+        main ()
+```
+
+typical recursion with accumulator and index
+```ocaml
+(* unihernandez22
+ * https://atcoder.jp/contests/abc139/tasks/abc139_a
+ * implementation
+ * *)
+ 
+let rec count_eq s t i c =
+    if i == String.length s then c
+    else if s.[i] == t.[i] then count_eq s t (i+1) (c+1)
+    else count_eq s t (i+1) c;;
+ 
+Printf.printf "%d\n" @@
+Scanf.scanf "%s\n%s\n" @@ fun s t ->
+    count_eq s t 0 0;;
+```
