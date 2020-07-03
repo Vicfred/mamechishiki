@@ -30,7 +30,7 @@ auto n = readln.chomp.to!int;
 Parse a list of space separated integers to a dynamic array.
 
 ```d
-double[] words = readline.split.map!(x => x.to!double).array;
+double[] words = readln.split.map!(x => x.to!double).array;
 ```
 
 initialize NxM matrix
