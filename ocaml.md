@@ -154,3 +154,15 @@ Printf.printf "%d\n" @@
 Scanf.scanf "%s\n%s\n" @@ fun s t ->
     count_eq s t 0 0;;
 ```
+
+Pipes
+```ocaml
+(* https://atcoder.jp/contests/abc077/tasks/abc077_b *)
+Scanf.scanf "%f\n" (fun x -> x)
+|> sqrt
+|> int_of_float
+|> (fun x -> x * x)
+|> Printf.printf "%d\n"
+
+
+```
