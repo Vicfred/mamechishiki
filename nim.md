@@ -135,3 +135,16 @@ unpack variables
 
 https://github.com/Yardanico/nim-snippets/blob/master/unpack_macro.nim
 
+operator overloading
+```nim
+type Restaurant = object
+  name: string
+  score: int
+  id: int;
+
+proc cmp(x, y: Restaurant): int =
+  if x.name == y.name:
+    return -cmp(x.score, y.score)
+  return cmp(x.name, y.name)
+```
+

@@ -72,3 +72,18 @@ void main() {
 }
 ```
 
+operator overloading
+```d
+struct restaurant {
+    string name;
+    int score;
+    int index;
+
+    int opCmp(restaurant rhs) const {
+        if(name == rhs.name)
+            return rhs.score - score;
+        return cmp(name, rhs.name);
+    }
+}
+```
+
