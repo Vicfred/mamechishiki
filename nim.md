@@ -148,3 +148,35 @@ proc cmp(x, y: Restaurant): int =
   return cmp(x.name, y.name)
 ```
 
+implement math-like notation for comparison using a macro
+```nim
+import macros
+
+proc processBool(n: NimNode): NimNode =
+  echo n.treeRepr
+  result = copyNimTree n
+  expectKind(n, nnkInfix)
+  var id: NimNode
+  case n[1].kind
+  of nnkInfix:
+    id = n[1][2]
+    result[1] = id
+    result = nnkInfix.newTree(ident("and"), result)
+    result.add n[1]
+    result = newStmtList(result)
+    echo result.treerepr
+  else: discard
+
+macro `{}`(x, y: untyped): untyped =
+  if x.strVal == "eq":
+    result = processBool(y)
+
+let x = 6
+let a = 2
+let b = 2
+echo eq{ 4 < x <= 10 }
+echo eq{ 8 < x < 10 }
+echo eq{ a == b == 2 }
+echo eq{ 1 < a != 2 }
+```
+
