@@ -87,3 +87,12 @@ struct restaurant {
 }
 ```
 
+counter using a dynamic array
+```
+long[long] counter;
+foreach(number; a) {
+    long count = counter.require(number, 0L);
+    counter[number] += 1L;
+}
+```
+
