@@ -23,7 +23,7 @@ for i = 1, 3 do
 end
 ```
 
-Various misc operations.
+Various misc operations: list of numbers, modulo, minimum.
 ```lua
 n = io.read("*n")
 A = {}
