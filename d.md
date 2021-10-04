@@ -123,3 +123,13 @@ foreach element with a lambda
 ```d
 idx.each!(it => "%s %s".writefln(it.x + 1, it.y + 1));
 ```
+
+map with more than 1 dimension
+```d
+int[char][int] counter;
+foreach(s; original) {
+    for(int i = 0; i < m; i++) {
+        counter[i][s[i]] += 1;
+    }
+}
+```
