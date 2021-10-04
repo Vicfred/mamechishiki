@@ -119,3 +119,7 @@ for(char c = 'a'; c <= 'z'; ++c) {
 }
 ```
 
+foreach element with a lambda
+```d
+idx.each!(it => "%s %s".writefln(it.x + 1, it.y + 1));
+```
