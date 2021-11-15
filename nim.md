@@ -1,3 +1,9 @@
+read and unpack integers
+```nim
+var n,m : int
+(n,m) = stdin.readLine.split.map(parseInt)
+```
+
 read int
 ```nim
 import strutils
@@ -18,6 +24,11 @@ let get = iterator: string {.closure.} =
 initialize list of integers
 ```nim
 var snukes = newSeq[int](n);
+```
+
+max of more than 2 numbers
+```nim
+max(@[6,5,4,3,2,21,4,5,])
 ```
 
 create an array containing 1..n
@@ -68,12 +79,6 @@ let lines = (1 .. n).mapIt(stdin.readLine)
 read n lines
 ```nim
 let lines = newSeqWith(n, stdin.readline)
-```
-
-read and unpack integers
-```nim
-var n,m : int
-(n,m) = stdin.readLine.split.map(parseInt)
 ```
 
 operator overloading
